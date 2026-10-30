@@ -1,2 +1,5 @@
 [core]
     autostage = true
+    remote = hfstore
+['remote "hfstore"']
+    url = https://huggingface.co/datasets/Daniela201000/defiende-el-servidor-dvc/resolve/main/dvcstore

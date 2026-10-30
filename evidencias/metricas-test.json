@@ -5,9 +5,10 @@
   "model_sha256": "ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62",
   "model_package": "models/release/v2",
   "huggingface": {
-    "repo_id": null,
-    "revision_sha": null,
-    "nota": "se completa al publicar; publicar no cambia model_sha256"
+    "repo_id": "Daniela201000/defiende-el-servidor",
+    "revision_sha": "e2f7bfdd932f383d7cf40c5413d5d407408889ba",
+    "tag": "v2",
+    "nota": "publicado después de congelar; publicar no cambia model_sha256"
   },
   "selection_freeze_commit": "2ae6479c9528c7dcc2342908618d4b432c8131fb",
   "evaluation_code_commit": "8a5e13c8245bc3e70ca6822c403eeeb243b69fd7",

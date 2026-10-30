@@ -23,9 +23,10 @@
       "git_commit": "1b826c1f1700cad8881f4c046b83ed0c47938f73"
     },
     "huggingface": {
-      "repo_id": null,
-      "revision_sha": null,
-      "nota": "se completa al publicar; publicar no cambia model_sha256"
+      "repo_id": "Daniela201000/defiende-el-servidor",
+      "revision_sha": "e2f7bfdd932f383d7cf40c5413d5d407408889ba",
+      "tag": "v2",
+      "nota": "publicado después de congelar; publicar no cambia model_sha256"
     }
   },
   "reason": "exp4_hist_gradient_boosting tiene el mayor macro-F1 de validación con umbral 0.5 (0.9502). Con FPR <= 0.05 como límite de falsas alarmas, el umbral 0.65 maximiza el recall de ataque en validación (0.9540, FPR 0.0499).",
