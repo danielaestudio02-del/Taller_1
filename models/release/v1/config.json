@@ -1,0 +1,109 @@
+{
+  "version": "v1",
+  "model_file": "model.joblib",
+  "model_sha256": "2b350cdc7d82316f448ed5b1a498a43798201a6a9654ecd7a42191aa8ab09c6c",
+  "threshold": 0.5,
+  "decision_rule": "y_pred = 1 (ataque) si score_attack >= threshold; score_attack = predict_proba[:, 1]",
+  "positive_class": {
+    "value": 1,
+    "name": "ataque"
+  },
+  "features": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "excluded_columns": [
+    "id",
+    "attack_cat",
+    "label"
+  ],
+  "experiment": "exp1_logreg_base",
+  "family": "lineal",
+  "preprocess": {
+    "kind": "linear",
+    "log1p": false,
+    "min_frequency": 20
+  },
+  "model": {
+    "type": "logistic_regression",
+    "params": {
+      "C": 1.0,
+      "max_iter": 2000
+    }
+  },
+  "seed": 42,
+  "selection_reason": "primera solución funcional (referencia lineal) con el umbral por defecto",
+  "validation_metrics": {
+    "recall_attack": 0.9886035111241464,
+    "precision_attack": 0.9222560975609756,
+    "fpr": 0.17758928571428573,
+    "f1_attack": 0.9542779721340316,
+    "macro_f1": 0.9224805709434845,
+    "accuracy": 0.9355234265833975,
+    "tp": 23595,
+    "tn": 9211,
+    "fp": 1989,
+    "fn": 272
+  },
+  "references": {
+    "github_repo": "https://github.com/danielaestudio02-del/Taller_1",
+    "git_tag": "v1",
+    "git_commit_training": "9a17cd225142061547ee474b9720e1113bfbea92",
+    "dvc_raw": {
+      "dvc_file": "data/raw.dvc",
+      "md5": "fe93051ae209ffb0128a31e7a478c009.dir",
+      "path": "raw",
+      "git_commit": "1b826c1f1700cad8881f4c046b83ed0c47938f73"
+    },
+    "dvc_prepared": {
+      "dvc_file": "data/prepared.dvc",
+      "md5": "53545c819eb4a624ddf5da61d08666c7.dir",
+      "path": "prepared",
+      "git_commit": "9a17cd225142061547ee474b9720e1113bfbea92"
+    },
+    "mlflow_experiment": "defiende-el-servidor",
+    "mlflow_run_id": "d918b87582934fdb85c0567161272c9c"
+  },
+  "python": "3.13.17",
+  "sklearn": "1.9.1"
+}
