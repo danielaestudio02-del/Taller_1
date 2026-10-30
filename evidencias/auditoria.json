@@ -1,0 +1,308 @@
+{
+  "source": {
+    "official_page": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+    "mirror_base": "https://raw.githubusercontent.com/Nir-J/ML-Projects/44bbd02b9e70f74dd915218d5eb702f125341ffc/UNSW-Network_Packet_Classification",
+    "download_date": "2026-10-30"
+  },
+  "files": {
+    "train": {
+      "file": "data/raw/UNSW_NB15_training-set.csv",
+      "size_bytes": 32293018,
+      "sha256": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa",
+      "sha256_matches_annex": true,
+      "rows": 175341,
+      "columns": 45,
+      "dtypes": {
+        "id": "int64",
+        "dur": "float64",
+        "proto": "str",
+        "service": "str",
+        "state": "str",
+        "spkts": "int64",
+        "dpkts": "int64",
+        "sbytes": "int64",
+        "dbytes": "int64",
+        "rate": "float64",
+        "sttl": "int64",
+        "dttl": "int64",
+        "sload": "float64",
+        "dload": "float64",
+        "sloss": "int64",
+        "dloss": "int64",
+        "sinpkt": "float64",
+        "dinpkt": "float64",
+        "sjit": "float64",
+        "djit": "float64",
+        "swin": "int64",
+        "stcpb": "int64",
+        "dtcpb": "int64",
+        "dwin": "int64",
+        "tcprtt": "float64",
+        "synack": "float64",
+        "ackdat": "float64",
+        "smean": "int64",
+        "dmean": "int64",
+        "trans_depth": "int64",
+        "response_body_len": "int64",
+        "ct_srv_src": "int64",
+        "ct_state_ttl": "int64",
+        "ct_dst_ltm": "int64",
+        "ct_src_dport_ltm": "int64",
+        "ct_dst_sport_ltm": "int64",
+        "ct_dst_src_ltm": "int64",
+        "is_ftp_login": "int64",
+        "ct_ftp_cmd": "int64",
+        "ct_flw_http_mthd": "int64",
+        "ct_src_ltm": "int64",
+        "ct_srv_dst": "int64",
+        "is_sm_ips_ports": "int64",
+        "attack_cat": "str",
+        "label": "int64"
+      },
+      "missing_total": 0,
+      "missing_by_column": {},
+      "label_counts": {
+        "0": 56000,
+        "1": 119341
+      },
+      "attack_cat_counts": {
+        "Normal": 56000,
+        "Generic": 40000,
+        "Exploits": 33393,
+        "Fuzzers": 18184,
+        "DoS": 12264,
+        "Reconnaissance": 10491,
+        "Analysis": 2000,
+        "Backdoor": 1746,
+        "Shellcode": 1133,
+        "Worms": 130
+      },
+      "id_unique": true,
+      "duplicates_by_features": {
+        "unique_inputs": 101040,
+        "rows_in_duplicated_groups": 84049,
+        "duplicate_rows_beyond_first": 74301,
+        "duplicate_rate": 0.423751
+      },
+      "contradictions": {
+        "groups_with_both_labels": 229,
+        "rows_in_contradictory_groups": 940
+      },
+      "categorical_levels": {
+        "proto": 133,
+        "service": 13,
+        "state": 9
+      }
+    },
+    "test": {
+      "file": "data/raw/UNSW_NB15_testing-set.csv",
+      "size_bytes": 15380800,
+      "sha256": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+      "sha256_matches_annex": true,
+      "rows": 82332,
+      "columns": 45,
+      "dtypes": {
+        "id": "int64",
+        "dur": "float64",
+        "proto": "str",
+        "service": "str",
+        "state": "str",
+        "spkts": "int64",
+        "dpkts": "int64",
+        "sbytes": "int64",
+        "dbytes": "int64",
+        "rate": "float64",
+        "sttl": "int64",
+        "dttl": "int64",
+        "sload": "float64",
+        "dload": "float64",
+        "sloss": "int64",
+        "dloss": "int64",
+        "sinpkt": "float64",
+        "dinpkt": "float64",
+        "sjit": "float64",
+        "djit": "float64",
+        "swin": "int64",
+        "stcpb": "int64",
+        "dtcpb": "int64",
+        "dwin": "int64",
+        "tcprtt": "float64",
+        "synack": "float64",
+        "ackdat": "float64",
+        "smean": "int64",
+        "dmean": "int64",
+        "trans_depth": "int64",
+        "response_body_len": "int64",
+        "ct_srv_src": "int64",
+        "ct_state_ttl": "int64",
+        "ct_dst_ltm": "int64",
+        "ct_src_dport_ltm": "int64",
+        "ct_dst_sport_ltm": "int64",
+        "ct_dst_src_ltm": "int64",
+        "is_ftp_login": "int64",
+        "ct_ftp_cmd": "int64",
+        "ct_flw_http_mthd": "int64",
+        "ct_src_ltm": "int64",
+        "ct_srv_dst": "int64",
+        "is_sm_ips_ports": "int64",
+        "attack_cat": "str",
+        "label": "int64"
+      },
+      "missing_total": 0,
+      "missing_by_column": {},
+      "label_counts": {
+        "0": 37000,
+        "1": 45332
+      },
+      "attack_cat_counts": {
+        "Normal": 37000,
+        "Generic": 18871,
+        "Exploits": 11132,
+        "Fuzzers": 6062,
+        "DoS": 4089,
+        "Reconnaissance": 3496,
+        "Analysis": 677,
+        "Backdoor": 583,
+        "Shellcode": 378,
+        "Worms": 44
+      },
+      "id_unique": true,
+      "duplicates_by_features": {
+        "unique_inputs": 53946,
+        "rows_in_duplicated_groups": 34704,
+        "duplicate_rows_beyond_first": 28386,
+        "duplicate_rate": 0.344775
+      },
+      "contradictions": {
+        "groups_with_both_labels": 6,
+        "rows_in_contradictory_groups": 14
+      },
+      "categorical_levels": {
+        "proto": 131,
+        "service": 13,
+        "state": 7
+      }
+    }
+  },
+  "target": {
+    "column": "label",
+    "encoding": {
+      "0": "normal",
+      "1": "ataque"
+    },
+    "positive_class": 1
+  },
+  "features_used": [
+    "dur",
+    "proto",
+    "service",
+    "state",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "dbytes",
+    "rate",
+    "sttl",
+    "dttl",
+    "sload",
+    "dload",
+    "sloss",
+    "dloss",
+    "sinpkt",
+    "dinpkt",
+    "sjit",
+    "djit",
+    "swin",
+    "stcpb",
+    "dtcpb",
+    "dwin",
+    "tcprtt",
+    "synack",
+    "ackdat",
+    "smean",
+    "dmean",
+    "trans_depth",
+    "response_body_len",
+    "ct_srv_src",
+    "ct_state_ttl",
+    "ct_dst_ltm",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "ct_dst_src_ltm",
+    "is_ftp_login",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "is_sm_ips_ports"
+  ],
+  "features_excluded": {
+    "id": "identificador de fila; solo auditoría y row_id",
+    "attack_cat": "categoría del ataque; revela la respuesta (fuga)",
+    "label": "variable objetivo"
+  },
+  "cleaning_policy": {
+    "missing": "No hay faltantes en los archivos publicados; el pipeline incluye imputación (mediana / más frecuente) ajustada solo con train por robustez.",
+    "duplicates": "Se conservan (representan frecuencia real de tráfico) pero todas las filas con entradas idénticas quedan en el mismo split (StratifiedGroupKFold por hash de entradas).",
+    "contradictions": "Grupos con entradas idénticas y etiquetas distintas se conservan: son ruido irreducible que acota el error mínimo; no se reetiquetan ni se eliminan, y quedan dentro de un único split.",
+    "test": "Archivo de test completo, sin eliminar filas. Solo se audita esquema, duplicados y cruces."
+  },
+  "split": {
+    "method": "StratifiedGroupKFold(n_splits=5, shuffle=True), pliegue 0 = validación",
+    "seed": 42,
+    "sizes_and_hashes": {
+      "train": {
+        "file": "data/prepared/train.parquet",
+        "rows": 140274,
+        "attack_rows": 95474,
+        "groups": 80821,
+        "content_sha256": "51c32ecabcc10e7efa467211c574964770b841c6626acd35efb6ffedabf0b522",
+        "row_ids_sha256": "dd54d137a4fb8127fa2838ba3f98a1373e8f0005de6d52a242fdef2a127cf35d"
+      },
+      "val": {
+        "file": "data/prepared/val.parquet",
+        "rows": 35067,
+        "attack_rows": 23867,
+        "groups": 20219,
+        "content_sha256": "45053e3c18d80e0b56ad1143e2be7abaa072c5d47941599391f3f7604726bc3e",
+        "row_ids_sha256": "892ddfeb6ca541f50722646db3abe2a1ab409cff891b28fdf49fb7a2d299e270"
+      },
+      "test": {
+        "file": "data/prepared/test.parquet",
+        "rows": 82332,
+        "attack_rows": 45332,
+        "groups": 53946,
+        "content_sha256": "3435134279fcfb383a38be7855de8a78719334c543251c1366e89f3f14b9c2ef",
+        "row_ids_sha256": "90c38405c57a149c6105835259788c82f60030bc1f1b7b42ff74c5707b369037"
+      }
+    },
+    "shared_groups_train_val": 0
+  },
+  "cross_partition_overlap": {
+    "description": "Filas cuyas entradas (variables predictoras) aparecen idénticas en otra partición",
+    "test_rows_seen_in_train": {
+      "rows": 6930,
+      "fraction_of_rows": 0.084171
+    },
+    "test_rows_seen_in_val": {
+      "rows": 1611,
+      "fraction_of_rows": 0.019567
+    },
+    "test_rows_seen_in_train_or_val": {
+      "rows": 8541,
+      "fraction_of_rows": 0.103739
+    },
+    "val_rows_seen_in_train": {
+      "rows": 0,
+      "fraction_of_rows": 0.0
+    }
+  },
+  "test_categorical_levels_unseen_in_train_split": {
+    "proto": [],
+    "service": [],
+    "state": [
+      "ACC",
+      "CLO"
+    ]
+  }
+}
