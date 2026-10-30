@@ -1,0 +1,22 @@
+== Prueba de recuperación 2026-10-30T13:15:10Z en /home/user/Taller_1/recovery_workspace
++ git clone --quiet https://github.com/danielaestudio02-del/Taller_1.git proyecto
++ git checkout --quiet 3da339d
+commit: 3da339d14abcaa5448e277c720008419c2335488
++ python3 -m venv .venv
++ pip install --quiet --no-cache-dir -r requirements.txt
++ dvc config --local cache.dir /home/user/Taller_1/recovery_workspace/dvc-cache
++ dvc pull
+A       data/prepared/
+A       data/raw/
+8 files fetched and 6 files added
++ sha256sum data/raw/UNSW_NB15_training-set.csv data/raw/UNSW_NB15_testing-set.csv
+bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa  data/raw/UNSW_NB15_training-set.csv
+734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559  data/raw/UNSW_NB15_testing-set.csv
++ dvc status
+Data and pipelines are up to date.
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:02,  2.26it/s]Fetching 6 files:  50%|█████     | 3/6 [00:00<00:00,  5.07it/s]Fetching 6 files:  67%|██████▋   | 4/6 [00:00<00:00,  4.52it/s]Fetching 6 files: 100%|██████████| 6/6 [00:01<00:00,  6.42it/s]Fetching 6 files: 100%|██████████| 6/6 [00:01<00:00,  5.40it/s]
+v1 {'hf_revision_sha': '691479df2d72c01e99bd1b32c9d5b82368ff8b70', 'model_sha256': '2b350cdc7d82316f448ed5b1a498a43798201a6a9654ecd7a42191aa8ab09c6c', 'model_sha256_expected': '2b350cdc7d82316f448ed5b1a498a43798201a6a9654ecd7a42191aa8ab09c6c', 'threshold': 0.5, 'rows': 25, 'labels_equal': True, 'max_abs_score_diff': 3.729505593241811e-11, 'ok': True}
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:01,  4.11it/s]Fetching 6 files:  50%|█████     | 3/6 [00:00<00:00,  7.12it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:00<00:00,  9.78it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00,  6.21it/s]
+v2 {'hf_revision_sha': 'e2f7bfdd932f383d7cf40c5413d5d407408889ba', 'model_sha256': 'ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62', 'model_sha256_expected': 'ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62', 'threshold': 0.65, 'rows': 25, 'labels_equal': True, 'max_abs_score_diff': 4.913802698069958e-11, 'ok': True}
+RESULTADO: OK
+== Fin 2026-10-30T13:23:08Z

@@ -24,7 +24,7 @@
 <body>
 <h1>Defiende el servidor</h1>
 <div class="sub">MLOps 2026-II · Universidad Externado de Colombia · Taller evaluable de versionado ·
-<span class="pending">Integrantes y grupo: PENDIENTE</span> · Repositorio: github.com/danielaestudio02-del/Taller_1</div>
+Daniela González Ortiz (individual) · Grupo A · Repositorio: github.com/danielaestudio02-del/Taller_1</div>
 
 <div class="chain"><b>Cadena de trazabilidad.</b> Código (commit Git) → Datos (<code>data/*.dvc</code>, md5) →
 Experimento (run ID de MLflow) → Modelo (revisión SHA en Hugging Face). Cada paquete de modelo lleva
@@ -59,7 +59,7 @@ independiente y conviene leer sus métricas con cautela.</p>
 <p><b>Versiones de datos en DVC.</b> v1 son los CSV recibidos (<code>data/raw.dvc</code>, md5
 <code>fe93051a…</code>, commit <code>1b826c1f</code>). v2 son los datos preparados con <code>row_id</code>,
 <code>group_id</code> y <code>split</code>, más un manifiesto (<code>data/prepared.dvc</code>, md5 <code>53545c81…</code>,
-commit <code>9a17cd22</code>). El almacenamiento remoto es un repositorio <i>dataset</i> de Hugging Face.</p>
+commit <code>9a17cd22</code>). El almacenamiento remoto es el repositorio <i>dataset</i> público <code>Daniela201000/defiende-el-servidor-dvc</code> de Hugging Face (remote <code>hfstore</code>).</p>
 
 <h2>3. Cuatro experimentos (validación, umbral 0,5)</h2>
 <p>Todos usan las mismas particiones y la semilla 42, y se entrenaron en el commit <code>9a17cd22</code> con el árbol de
@@ -84,7 +84,7 @@ mucho recall. exp4 obtiene el mejor macro-F1 con un modelo de 1,1 MB, mientras q
 <tr><td>Modelo · umbral</td><td>exp1, regresión logística · 0,50</td><td>exp4, HistGradientBoosting · 0,65</td></tr>
 <tr><td>Commit de la solución</td><td><code>330015e9da6c114e870f444c720d585952fbfaac</code></td><td><code>2ae6479c9528c7dcc2342908618d4b432c8131fb</code></td></tr>
 <tr><td>SHA-256 de model.joblib</td><td><code>2b350cdc…a8ab09c6c</code></td><td><code>ac60460c…69d5f2b62</code></td></tr>
-<tr><td>Revisión HF</td><td class="pending">PENDIENTE</td><td class="pending">PENDIENTE</td></tr>
+<tr><td>Revisión HF (Daniela201000/defiende-el-servidor)</td><td><code>691479df2d72c01e99bd1b32c9d5b82368ff8b70</code></td><td><code>e2f7bfdd932f383d7cf40c5413d5d407408889ba</code></td></tr>
 <tr><td>Validación: recall / precision / FPR / macro-F1</td><td>0,9886 / 0,9223 / 0,1776 / 0,9225</td><td>0,9540 / 0,9760 / 0,0499 / 0,9463</td></tr>
 <tr><td>Matriz de validación (TN FP / FN TP)</td><td>9.211 1.989 / 272 23.595</td><td>10.641 559 / 1.098 22.769</td></tr>
 </table>
@@ -127,7 +127,7 @@ dependencias fijadas y usa una caché DVC y un <code>HF_HOME</code> vacíos. Des
 remote entregado y verifica los SHA-256 de los crudos y las huellas de los splits. Descarga v1 y v2 de Hugging Face por SHA
 completo, predice sobre 25 filas fijas de validación (<code>muestra_validacion.csv</code>) y compara con las predicciones
 guardadas antes de publicar, exigiendo etiquetas iguales y una diferencia de score ≤ 1e-9.
-<span class="pending">Resultado: PENDIENTE (se completa al ejecutar la prueba).</span></p>
+<b>Resultado (30-10-2026, commit <code>3da339d1</code>): OK.</b> <code>dvc pull</code> trajo 8 archivos desde Hugging Face con huellas coincidentes. Las 25 etiquetas de v1 y de v2 coinciden, con una diferencia máxima de score de 3,7e-11 (v1) y 4,9e-11 (v2), y el SHA-256 de cada artefacto descargado coincide con el registrado. El log está en <code>evidencias/recuperacion/</code>.</p>
 
 <h2>8. Limitaciones</h2>
 <ul>

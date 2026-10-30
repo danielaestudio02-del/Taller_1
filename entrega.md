@@ -1,11 +1,9 @@
 # Entrega · MLOps — Defiende el servidor
 
-> Los campos marcados **PENDIENTE** se completan al publicar en Hugging Face (`src/publish_hf.py`).
-
 ## Integrantes y repositorio
-- Integrantes: **PENDIENTE (nombres completos)** · Grupo: **PENDIENTE (A/B)**
+- Integrante: **Daniela González Ortiz** (trabajo individual) · Grupo: **A**
 - Repositorio de código: https://github.com/danielaestudio02-del/Taller_1 (rama `ccr-1ea24a3d-l2kztl`)
-- Commit final de la entrega: **PENDIENTE** (el último commit de la rama al enviar)
+- Commit final de la entrega: el último commit de la rama `ccr-1ea24a3d-l2kztl`; su SHA completo se indica en el mensaje de entrega (un archivo no puede contener el hash de su propio commit).
 
 ## Versiones
 | | v1 | v2 |
@@ -18,12 +16,14 @@
 | Run ID MLflow | `d918b87582934fdb85c0567161272c9c` | `a5ca54703ec744fba37ff99212277e71` |
 | SHA-256 de `model.joblib` | `2b350cdc7d82316f448ed5b1a498a43798201a6a9654ecd7a42191aa8ab09c6c` | `ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62` |
 | Umbral | 0.50 | 0.65 |
-| Hugging Face repo | **PENDIENTE** | **PENDIENTE** |
-| Revisión HF (SHA completo) | **PENDIENTE** | **PENDIENTE** |
+| Hugging Face repo | https://huggingface.co/Daniela201000/defiende-el-servidor | ídem |
+| Revisión HF (SHA completo) | `691479df2d72c01e99bd1b32c9d5b82368ff8b70` (tag `v1`) | `e2f7bfdd932f383d7cf40c5413d5d407408889ba` (tag `v2`) |
 | Validación recall / precision / FPR / macro-F1 | 0.9886 / 0.9223 / 0.1776 / 0.9225 | 0.9540 / 0.9760 / 0.0499 / 0.9463 |
 
-Los tags Git `v1` y `v2` se crearon sobre esos commits. Si no aparecen en GitHub, los commits completos
-de la tabla identifican cada solución.
+La revisión `45323bdaff1232c44ca6f4c8273b12a7de78426c` del repo de modelos solo agrega el resultado de test a la
+model card de v2: `model.joblib` es idéntico al de la revisión evaluada `e2f7bfdd…`.
+Los tags Git `v1` y `v2` se crearon sobre los commits de la tabla. Si no aparecen en GitHub, los commits
+completos identifican cada solución.
 
 Los datos v1 (originales) se fijaron en el commit `1b826c1f1700cad8881f4c046b83ed0c47938f73`.
 Los datos v2 (preparados y particiones) se fijaron en el commit `9a17cd225142061547ee474b9720e1113bfbea92`.
@@ -37,20 +37,21 @@ Los datos v2 (preparados y particiones) se fijaron en el commit `9a17cd225142061
 | Selección y congelación | `evidencias/seleccion.json`, curva `evidencias/seleccion_umbral.csv`; congelado en el commit `2ae6479c…` |
 | Test final | `evidencias/metricas-test.json`, `evidencias/predicciones-test.csv` (commit `701a209c…`) |
 | Referencias Hugging Face | `evidencias/huggingface.json` |
-| Recuperación | `evidencias/recuperacion/` (muestra, predicciones originales/recuperadas, log, resultado) |
+| Recuperación | `evidencias/recuperacion/`: `muestra_validacion.csv` (25 filas), `pred_v*_original.csv`, `pred_v*_recuperado.csv`, `log_recuperacion.txt`, `recuperacion_resultado.json`. **Resultado: OK** (30-10-2026, commit `3da339d1`; etiquetas idénticas, diferencia máxima de score 4,9e-11 ≤ tolerancia 1e-9) |
 | Paquetes de modelo publicados | `models/release/v1`, `models/release/v2` |
 
 ## Almacenamiento DVC y acceso
-- Remote `hfstore`, un repositorio *dataset* de Hugging Face: **PENDIENTE** (URL en `.dvc/config` y `evidencias/huggingface.json`).
-- Acceso: público para lectura, o invitación al docente. No se comparten tokens.
+- Remote `hfstore` (por defecto en `.dvc/config`): https://huggingface.co/datasets/Daniela201000/defiende-el-servidor-dvc,
+  ruta `dvcstore/`, commit `7e9779311b8530acc76a454728321492f254c88a`.
+- Acceso: repositorio **público**. `dvc pull` funciona sin credenciales. No se comparten tokens.
 
 ## Comandos
 Están completos en el `README.md`:
 - Instalación: `pip install -r requirements.txt`
-- Recuperación de datos: `dvc pull`
+- Recuperación de datos: `dvc pull` (~1 min)
 - Entrenamiento: `python src/train.py configs/experiments/<exp>.yaml`
 - Predicción: `python predict.py --model-dir <carpeta HF> --input <csv> --output <csv>`
-- Prueba de recuperación: `bash scripts/recuperacion.sh <commit>`
+- Prueba de recuperación: `bash scripts/recuperacion.sh <commit>` (~8 min, la mayor parte en instalar dependencias)
 
 ## Tiempo y recursos medidos
 Máquina de 4 vCPU, 15 GB de RAM, sin GPU.
@@ -66,8 +67,12 @@ Máquina de 4 vCPU, 15 GB de RAM, sin GPU.
 
 ## Uso de IA, código externo y contribuciones
 - Se usó Claude Code (asistente de IA de Anthropic) para escribir el código, ejecutar los
-  experimentos y redactar la documentación. **PENDIENTE: describir qué verificó cada integrante**
-  (p. ej., revisión de particiones, recálculo de métricas, prueba de recuperación).
+  experimentos, publicar en Hugging Face y redactar la documentación y el informe. La verificación
+  quedó automatizada y registrada: huellas SHA-256 contra el anexo, ausencia de grupos compartidos
+  train/val, recálculo de métricas de test (`recompute_metrics.py`) y prueba de recuperación en un
+  entorno nuevo (resultado OK).
 - Sin código externo copiado. Las bibliotecas usadas son scikit-learn, pandas, MLflow, DVC y
   huggingface_hub, con sus licencias respectivas.
-- Contribución de cada integrante: **PENDIENTE**.
+- Contribución: trabajo individual de Daniela González Ortiz. Definió el alcance, creó y configuró
+  las cuentas y credenciales (GitHub, Hugging Face), configuró el entorno, dirigió el trabajo con el
+  asistente y revisó las decisiones y los resultados.
