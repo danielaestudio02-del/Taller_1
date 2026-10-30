@@ -1,7 +1,8 @@
 """Publica en Hugging Face Hub: modelos v1/v2 (repo de modelos) y almacenamiento DVC (repo dataset).
 
 Requiere variables de entorno (nunca escribir el token en archivos):
-  HF_TOKEN       token con permiso de escritura
+  HF_TOKEN       token con permiso de escritura (opcional si el entorno lo inyecta como
+                 "secreto de red" para huggingface.co)
   HF_REPO_ID     repo de modelos, p. ej. usuario/defiende-el-servidor
   HF_DVC_REPO_ID repo dataset para DVC, p. ej. usuario/defiende-el-servidor-dvc
   HF_PRIVATE     "1" para crear repos privados (por defecto públicos)
@@ -26,9 +27,8 @@ HF_JSON = ROOT / "evidencias/huggingface.json"
 
 
 def api() -> HfApi:
-    if not os.environ.get("HF_TOKEN"):
-        raise SystemExit("Falta HF_TOKEN en el entorno")
-    return HfApi(token=os.environ["HF_TOKEN"])
+    # Sin HF_TOKEN se asume que el proxy del entorno agrega la credencial (secreto de red).
+    return HfApi(token=os.environ.get("HF_TOKEN") or False)
 
 
 def private() -> bool:
