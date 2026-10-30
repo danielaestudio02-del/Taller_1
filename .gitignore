@@ -5,8 +5,6 @@ __pycache__/
 mlflow.db
 mlartifacts/
 mlruns/
-# Paquetes de modelo (se publican en Hugging Face; aquí solo sus metadatos)
-models/release/*/model.joblib
 # Copia local del almacenamiento DVC (se publica en Hugging Face Datasets)
 dvcstore/
 # Prueba de recuperación en carpeta nueva

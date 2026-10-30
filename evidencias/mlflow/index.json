@@ -1,0 +1,26 @@
+{
+  "tracking": "MLflow local, backend sqlite:///mlflow.db (no versionado); esta carpeta es la exportación",
+  "experiment_name": "defiende-el-servidor",
+  "runs": [
+    {
+      "id": "exp1_logreg_base",
+      "run_id": "d918b87582934fdb85c0567161272c9c",
+      "folder": "evidencias/mlflow/exp1_logreg_base__d918b87582934fdb85c0567161272c9c"
+    },
+    {
+      "id": "exp2_logreg_log_c01",
+      "run_id": "420be7f77581427daa499d422d8f8d45",
+      "folder": "evidencias/mlflow/exp2_logreg_log_c01__420be7f77581427daa499d422d8f8d45"
+    },
+    {
+      "id": "exp3_random_forest",
+      "run_id": "831fc6f52fb6465698f3cc1416bd32c3",
+      "folder": "evidencias/mlflow/exp3_random_forest__831fc6f52fb6465698f3cc1416bd32c3"
+    },
+    {
+      "id": "exp4_hist_gradient_boosting",
+      "run_id": "a5ca54703ec744fba37ff99212277e71",
+      "folder": "evidencias/mlflow/exp4_hist_gradient_boosting__a5ca54703ec744fba37ff99212277e71"
+    }
+  ]
+}

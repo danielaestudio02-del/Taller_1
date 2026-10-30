@@ -1,0 +1,12 @@
+id: exp1_logreg_base
+family: lineal
+hypothesis: >-
+  Una regresión logística con escalado estándar y one-hot es una referencia sencilla y
+  suficiente para separar buena parte del tráfico de ataque (recall de ataque > 0.90).
+change: Referencia (sin cambios previos).
+seed: 42
+threshold: 0.5
+preprocess: {kind: linear, log1p: false, min_frequency: 20}
+model:
+  type: logistic_regression
+  params: {C: 1.0, max_iter: 2000}

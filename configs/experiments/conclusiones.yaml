@@ -1,0 +1,13 @@
+# Conclusión de validación de cada configuración (umbral 0.5), escrita tras ver solo validación.
+exp1_logreg_base: >-
+  Hipótesis parcialmente confirmada: recall de ataque muy alto (0.989) pero FPR de 0.178;
+  casi 1 de cada 5 conexiones normales genera alarma. Sirve como referencia y como v1.
+exp2_logreg_log_c01: >-
+  Confirmada en parte: log1p y C=0.1 bajan la FPR (0.178 -> 0.144) y suben macro-F1
+  (0.923 -> 0.927) a costa de recall (0.989 -> 0.977). El límite lineal sigue dejando muchas falsas alarmas.
+exp3_random_forest: >-
+  Confirmada: el bosque reduce la FPR a 0.099 y sube macro-F1 a 0.948 manteniendo recall 0.981.
+  Modelo grande (~44 MB) y entrenamiento más costoso.
+exp4_hist_gradient_boosting: >-
+  Confirmada: mejor macro-F1 (0.950) y menor FPR (0.084) con recall 0.976, modelo de ~1 MB.
+  Candidato para v2; su umbral se ajusta en validación para limitar falsas alarmas.

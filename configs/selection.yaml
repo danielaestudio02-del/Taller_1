@@ -1,0 +1,12 @@
+# Regla de selección de v2, definida antes de ver el test. Solo usa validación.
+candidates: [exp1_logreg_base, exp2_logreg_log_c01, exp3_random_forest, exp4_hist_gradient_boosting]
+model_rule: "mayor macro-F1 de validación con umbral 0.5 (desempate: menor FPR)"
+threshold_rule:
+  objective: maximizar recall de ataque
+  constraint: {metric: fpr, max: 0.05}   # límite operativo de falsas alarmas sobre tráfico normal
+  grid: {start: 0.05, stop: 0.95, step: 0.01}
+  tie_break: menor umbral
+v1:
+  experiment: exp1_logreg_base
+  threshold: 0.5
+  reason: "primera solución funcional (referencia lineal) con el umbral por defecto"
