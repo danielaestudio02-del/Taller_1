@@ -1,0 +1,12 @@
+id: exp4_hist_gradient_boosting
+family: arboles
+hypothesis: >-
+  El boosting de histogramas corrige errores residuales de forma secuencial y logra un
+  equilibrio precision/recall al menos tan bueno como el bosque, con un modelo más pequeño.
+change: Algoritmo de árboles (boosting en lugar de bagging) y sus hiperparámetros.
+seed: 42
+threshold: 0.5
+preprocess: {kind: tree}
+model:
+  type: hist_gradient_boosting
+  params: {max_iter: 300, learning_rate: 0.1, max_leaf_nodes: 31, l2_regularization: 1.0, early_stopping: false}

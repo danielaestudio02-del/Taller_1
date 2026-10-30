@@ -1,0 +1,13 @@
+id: exp2_logreg_log_c01
+family: lineal
+hypothesis: >-
+  Las variables de bytes/tasas tienen colas muy pesadas; aplicar log1p antes de escalar y
+  regularizar más (C=0.1) mejora la separación lineal y reduce la tasa de falsos positivos
+  respecto a exp1.
+change: Preprocesamiento (log1p en numéricas) + hiperparámetro C=0.1 frente a exp1.
+seed: 42
+threshold: 0.5
+preprocess: {kind: linear, log1p: true, min_frequency: 20}
+model:
+  type: logistic_regression
+  params: {C: 0.1, max_iter: 2000}

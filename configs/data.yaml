@@ -1,0 +1,25 @@
+# Datos y particiones. Estas particiones quedan fijas para todos los experimentos.
+source:
+  official_page: https://research.unsw.edu.au/projects/unsw-nb15-dataset
+  mirror_base: https://raw.githubusercontent.com/Nir-J/ML-Projects/44bbd02b9e70f74dd915218d5eb702f125341ffc/UNSW-Network_Packet_Classification
+  download_date: "2026-10-30"
+raw:
+  train: data/raw/UNSW_NB15_training-set.csv
+  test: data/raw/UNSW_NB15_testing-set.csv
+expected_sha256:
+  train: bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa
+  test: 734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559
+expected_rows:
+  train: 175341
+  test: 82332
+prepared:
+  dir: data/prepared
+  train: data/prepared/train.parquet
+  val: data/prepared/val.parquet
+  test: data/prepared/test.parquet
+  manifest: data/prepared/manifest.json
+split:
+  seed: 42
+  n_splits: 5          # StratifiedGroupKFold: el pliegue 0 es validación (~20 %)
+  val_fold: 0
+  group_by: feature_hash  # filas con entradas idénticas comparten grupo
