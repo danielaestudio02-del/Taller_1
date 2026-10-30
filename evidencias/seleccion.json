@@ -1,0 +1,112 @@
+{
+  "version": "v2",
+  "experiment": "exp4_hist_gradient_boosting",
+  "run_id": "a5ca54703ec744fba37ff99212277e71",
+  "model_sha256": "ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62",
+  "threshold": 0.65,
+  "decision_rule": "ataque (1) si score_attack >= threshold",
+  "positive_class": "1 = ataque",
+  "references": {
+    "git_commit_training": "9a17cd225142061547ee474b9720e1113bfbea92",
+    "git_commit_selection_code": "330015e9da6c114e870f444c720d585952fbfaac",
+    "git_tag": "v2",
+    "dvc_prepared": {
+      "dvc_file": "data/prepared.dvc",
+      "md5": "53545c819eb4a624ddf5da61d08666c7.dir",
+      "path": "prepared",
+      "git_commit": "9a17cd225142061547ee474b9720e1113bfbea92"
+    },
+    "dvc_raw": {
+      "dvc_file": "data/raw.dvc",
+      "md5": "fe93051ae209ffb0128a31e7a478c009.dir",
+      "path": "raw",
+      "git_commit": "1b826c1f1700cad8881f4c046b83ed0c47938f73"
+    },
+    "huggingface": {
+      "repo_id": null,
+      "revision_sha": null,
+      "nota": "se completa al publicar; publicar no cambia model_sha256"
+    }
+  },
+  "reason": "exp4_hist_gradient_boosting tiene el mayor macro-F1 de validación con umbral 0.5 (0.9502). Con FPR <= 0.05 como límite de falsas alarmas, el umbral 0.65 maximiza el recall de ataque en validación (0.9540, FPR 0.0499).",
+  "rules": {
+    "candidates": [
+      "exp1_logreg_base",
+      "exp2_logreg_log_c01",
+      "exp3_random_forest",
+      "exp4_hist_gradient_boosting"
+    ],
+    "model_rule": "mayor macro-F1 de validación con umbral 0.5 (desempate: menor FPR)",
+    "threshold_rule": {
+      "objective": "maximizar recall de ataque",
+      "constraint": {
+        "metric": "fpr",
+        "max": 0.05
+      },
+      "grid": {
+        "start": 0.05,
+        "stop": 0.95,
+        "step": 0.01
+      },
+      "tie_break": "menor umbral"
+    },
+    "v1": {
+      "experiment": "exp1_logreg_base",
+      "threshold": 0.5,
+      "reason": "primera solución funcional (referencia lineal) con el umbral por defecto"
+    }
+  },
+  "model_ranking_validation": [
+    {
+      "id": "exp4_hist_gradient_boosting",
+      "run_id": "a5ca54703ec744fba37ff99212277e71",
+      "val_macro_f1_at_0.5": 0.9501534842487512,
+      "val_fpr_at_0.5": 0.08419642857142857
+    },
+    {
+      "id": "exp3_random_forest",
+      "run_id": "831fc6f52fb6465698f3cc1416bd32c3",
+      "val_macro_f1_at_0.5": 0.9476437251090566,
+      "val_fpr_at_0.5": 0.099375
+    },
+    {
+      "id": "exp2_logreg_log_c01",
+      "run_id": "420be7f77581427daa499d422d8f8d45",
+      "val_macro_f1_at_0.5": 0.9273839963106787,
+      "val_fpr_at_0.5": 0.14375
+    },
+    {
+      "id": "exp1_logreg_base",
+      "run_id": "d918b87582934fdb85c0567161272c9c",
+      "val_macro_f1_at_0.5": 0.9224805709434845,
+      "val_fpr_at_0.5": 0.17758928571428573
+    }
+  ],
+  "validation_metrics_at_threshold": {
+    "recall_attack": 0.953995055934973,
+    "precision_attack": 0.9760373799725651,
+    "fpr": 0.04991071428571429,
+    "f1_attack": 0.9648903485538722,
+    "macro_f1": 0.9463276451780216,
+    "accuracy": 0.9527475974562979,
+    "tp": 22769.0,
+    "tn": 10641.0,
+    "fp": 559.0,
+    "fn": 1098.0
+  },
+  "validation_metrics_at_0.5": {
+    "recall_attack": 0.9764109439812293,
+    "precision_attack": 0.9611085907534953,
+    "fpr": 0.08419642857142857,
+    "f1_attack": 0.9686993390697095,
+    "macro_f1": 0.9501534842487512,
+    "accuracy": 0.9570536401745231,
+    "tp": 23304,
+    "tn": 10257,
+    "fp": 943,
+    "fn": 563
+  },
+  "frozen_at_utc": "2026-10-30T00:47:22+00:00",
+  "frozen_before_test": true,
+  "freeze_evidence": "commit Git que agrega este archivo (anterior al commit de evidencias de test)"
+}
