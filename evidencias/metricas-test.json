@@ -1,0 +1,60 @@
+{
+  "version": "v2",
+  "experiment": "exp4_hist_gradient_boosting",
+  "mlflow_run_id": "a5ca54703ec744fba37ff99212277e71",
+  "model_sha256": "ac60460c5b0508bea7d5504a8d0dff24cda1d2fafca94825b4ff1e369d5f2b62",
+  "model_package": "models/release/v2",
+  "huggingface": {
+    "repo_id": null,
+    "revision_sha": null,
+    "nota": "se completa al publicar; publicar no cambia model_sha256"
+  },
+  "selection_freeze_commit": "2ae6479c9528c7dcc2342908618d4b432c8131fb",
+  "evaluation_code_commit": "8a5e13c8245bc3e70ca6822c403eeeb243b69fd7",
+  "dataset": {
+    "raw_file": "data/raw/UNSW_NB15_testing-set.csv",
+    "raw_sha256": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559",
+    "prepared_file": "data/prepared/test.parquet",
+    "prepared_content_sha256": "3435134279fcfb383a38be7855de8a78719334c543251c1366e89f3f14b9c2ef",
+    "rows_evaluated": 82332,
+    "rows_in_published_file": 82332
+  },
+  "threshold": 0.65,
+  "decision_rule": "y_pred = 1 (ataque) si score_attack >= threshold; score_attack = predict_proba[:, 1]",
+  "positive_class": "1 = ataque",
+  "zero_division_policy": "denominador cero -> 0.0",
+  "confusion_matrix": {
+    "labels": [
+      "normal(0)",
+      "ataque(1)"
+    ],
+    "rows": "real",
+    "cols": "predicho",
+    "matrix": [
+      [
+        30319,
+        6681
+      ],
+      [
+        1357,
+        43975
+      ]
+    ]
+  },
+  "metrics": {
+    "recall_attack": 0.9700652960381188,
+    "precision_attack": 0.8681103916614024,
+    "fpr": 0.18056756756756756,
+    "f1_attack": 0.9162603658790682,
+    "macro_f1": 0.8996090110599837,
+    "accuracy": 0.9023708885973862,
+    "tp": 43975,
+    "tn": 30319,
+    "fp": 6681,
+    "fn": 1357
+  },
+  "predictions_file": "evidencias/predicciones-test.csv",
+  "predictions_sha256": "7416dc7c7aada239fca1cc5891e220c233b82aec74b1261d21ce6ee6e3854390",
+  "recompute": "python src/recompute_metrics.py evidencias/predicciones-test.csv",
+  "evaluated_at_utc": "2026-10-30T00:48:23+00:00"
+}
