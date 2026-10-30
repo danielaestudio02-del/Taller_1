@@ -9,3 +9,4 @@ mlruns/
 dvcstore/
 # Prueba de recuperación en carpeta nueva
 recovery_workspace/
+entrega/

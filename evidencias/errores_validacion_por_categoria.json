@@ -1,0 +1,127 @@
+{
+  "descripcion": "Validación: fracción de filas clasificadas como ataque por attack_cat (solo interpretación; attack_cat no es entrada del modelo). Para Normal es la FPR.",
+  "v1": [
+    {
+      "attack_cat": "Analysis",
+      "filas": 390,
+      "detectadas": 388,
+      "tasa_alarma": 0.9949
+    },
+    {
+      "attack_cat": "Backdoor",
+      "filas": 339,
+      "detectadas": 335,
+      "tasa_alarma": 0.9882
+    },
+    {
+      "attack_cat": "DoS",
+      "filas": 2521,
+      "detectadas": 2501,
+      "tasa_alarma": 0.9921
+    },
+    {
+      "attack_cat": "Exploits",
+      "filas": 6688,
+      "detectadas": 6643,
+      "tasa_alarma": 0.9933
+    },
+    {
+      "attack_cat": "Fuzzers",
+      "filas": 3644,
+      "detectadas": 3457,
+      "tasa_alarma": 0.9487
+    },
+    {
+      "attack_cat": "Generic",
+      "filas": 8188,
+      "detectadas": 8185,
+      "tasa_alarma": 0.9996
+    },
+    {
+      "attack_cat": "Normal",
+      "filas": 11200,
+      "detectadas": 1989,
+      "tasa_alarma": 0.1776
+    },
+    {
+      "attack_cat": "Reconnaissance",
+      "filas": 1851,
+      "detectadas": 1843,
+      "tasa_alarma": 0.9957
+    },
+    {
+      "attack_cat": "Shellcode",
+      "filas": 221,
+      "detectadas": 219,
+      "tasa_alarma": 0.991
+    },
+    {
+      "attack_cat": "Worms",
+      "filas": 25,
+      "detectadas": 24,
+      "tasa_alarma": 0.96
+    }
+  ],
+  "v2": [
+    {
+      "attack_cat": "Analysis",
+      "filas": 390,
+      "detectadas": 338,
+      "tasa_alarma": 0.8667
+    },
+    {
+      "attack_cat": "Backdoor",
+      "filas": 339,
+      "detectadas": 339,
+      "tasa_alarma": 1.0
+    },
+    {
+      "attack_cat": "DoS",
+      "filas": 2521,
+      "detectadas": 2514,
+      "tasa_alarma": 0.9972
+    },
+    {
+      "attack_cat": "Exploits",
+      "filas": 6688,
+      "detectadas": 6636,
+      "tasa_alarma": 0.9922
+    },
+    {
+      "attack_cat": "Fuzzers",
+      "filas": 3644,
+      "detectadas": 2671,
+      "tasa_alarma": 0.733
+    },
+    {
+      "attack_cat": "Generic",
+      "filas": 8188,
+      "detectadas": 8186,
+      "tasa_alarma": 0.9998
+    },
+    {
+      "attack_cat": "Normal",
+      "filas": 11200,
+      "detectadas": 559,
+      "tasa_alarma": 0.0499
+    },
+    {
+      "attack_cat": "Reconnaissance",
+      "filas": 1851,
+      "detectadas": 1849,
+      "tasa_alarma": 0.9989
+    },
+    {
+      "attack_cat": "Shellcode",
+      "filas": 221,
+      "detectadas": 211,
+      "tasa_alarma": 0.9548
+    },
+    {
+      "attack_cat": "Worms",
+      "filas": 25,
+      "detectadas": 25,
+      "tasa_alarma": 1.0
+    }
+  ]
+}
